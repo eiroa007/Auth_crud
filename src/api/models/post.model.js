@@ -7,7 +7,7 @@ const PostSchema = new mongoose.Schema(
     contenido: { type: String, required: true, trim: true },
     usuario: { type: mongoose.Types.ObjectId, ref: "users" },
     Categoria: { type: String, enum: [discapacidad.mayores] },
-    publicado: { type: Boolean, required: true },
+    publicado: { type: Boolean, required: true, default: false },
     data: { type: String, trim: true },
   },
 
