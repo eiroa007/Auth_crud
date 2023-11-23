@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UsarSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     nombre: { type: String, required: true, trim: true },
     email: { type: String, required: true, trim: true },
@@ -22,6 +22,6 @@ const UsarSchema = new mongoose.Schema(
   }
 );
 
-const Usar = mongoose.model("usar", UsarSchema);
+const User = mongoose.model("user", UserSchema);
 
-module.exports = Usar;
+module.exports = User;
