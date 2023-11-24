@@ -10,7 +10,11 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 //Routes
+const PostRouter = require("./src/api/routes/post.routes");
+server.use("/post", PostRouter);
+
 const UserRouter = require("./src/api/routes/user.routes");
+
 server.use("/users", UserRouter);
 
 server.use("*", (req, res) => {
