@@ -27,24 +27,5 @@ const publishPost = async (req, res, next) => {
   }
 };
 
-const loginPost = async (req, res, next) => {
-  try {
-    const post = await Post.findOne({ email: req.body.email });
-    if (!post) {
-      return next(new Error("Email not valid"));
-    }
-    if (bcrypt.compareSync(req.body.password, post.password)) {
-      const token = generateToken(post._id, post.email);
-      return res.status(200).json({
-        email: post.email,
-        token: token,
-      });
-    } else {
-      return next(new Error("Password not valid"));
-    }
-  } catch (error) {
-    return next(error);
-  }
-};
 
-module.exports = { getPost, publishPost, loginPost };
+module.exports = { getPost, publishPost };

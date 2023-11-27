@@ -2,13 +2,14 @@ const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
 const connect = require("./src/utils/db");
-
+const cors = require("cors")
 const server = express();
 connect();
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
+server.use(cors())
 //Routes
 const PostRouter = require("./src/api/routes/post.routes");
 server.use("/post", PostRouter);
